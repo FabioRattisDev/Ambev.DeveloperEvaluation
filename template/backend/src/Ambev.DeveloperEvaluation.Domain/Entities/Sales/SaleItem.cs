@@ -9,6 +9,9 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities;
 /// </summary>
 public class SaleItem : BaseEntity
 {
+    public Sale Sale { get; set; }
+    public Guid SaleId { get; set; }
+    
     /// <summary>
     /// Gets or sets the product name.
     /// </summary>
@@ -17,22 +20,22 @@ public class SaleItem : BaseEntity
     /// <summary>
     /// Gets or sets the quantity of the product sold.
     /// </summary>
-    public int Quantity { get; private set; }
+    public int Quantity { get; set; }
 
     /// <summary>
     /// Gets or sets the unit price of the product.
     /// </summary>
-    public decimal UnitPrice { get; private set; }
+    public decimal UnitPrice { get; set; }
 
     /// <summary>
     /// Gets the discount applied to the product.
     /// </summary>
-    public decimal Discount { get; private set; }
+    public decimal Discount { get; set; }
 
     /// <summary>
     /// Gets the total price of the item, considering the discount.
     /// </summary>
-    public decimal TotalPrice => (UnitPrice * Quantity) - Discount;
+    public decimal TotalPrice { get; set; }
 
     /// <summary>
     /// Initializes a new instance of the SaleItem class.
